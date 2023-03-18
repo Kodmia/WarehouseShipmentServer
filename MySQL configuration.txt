@@ -1,0 +1,36 @@
+CREATE DATABASE  IF NOT EXISTS `warehouse`
+USE `warehouse`;
+
+CREATE TABLE `images` (
+  `image_id` int NOT NULL AUTO_INCREMENT,
+  `order_id` int NOT NULL,
+  `image_name` varchar(255) NOT NULL,
+  `image_path` varchar(255) NOT NULL,
+  PRIMARY KEY (`image_id`),
+  KEY `order_id_idx` (`order_id`),
+  CONSTRAINT `order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `orders` (
+  `order_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `order_name` varchar(255) NOT NULL,
+  `order_status` varchar(255) NOT NULL,
+  `comment` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `goods` mediumtext NOT NULL,
+  `checked` int NOT NULL,
+  PRIMARY KEY (`order_id`),
+  KEY `user_id_idx` (`user_id`),
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `users` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `salt` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+

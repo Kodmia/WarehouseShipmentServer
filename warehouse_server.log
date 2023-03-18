@@ -1,0 +1,250 @@
+2023-03-18 11:27:57.263 [main] INFO  Application - Autoreload is disabled because the development mode is off.
+2023-03-18 11:27:57.539 [main] INFO  Application - Application started in 0.293 seconds.
+2023-03-18 11:27:57.539 [main] INFO  Application - Application started: io.ktor.server.application.Application@5782d777
+2023-03-18 11:27:57.776 [DefaultDispatcher-worker-1] INFO  Application - Responding at http://0.0.0.0:8080
+2023-03-18 11:29:42.375 [eventLoopGroupProxy-4-2] INFO  Application - [31m400 Bad Request[m: [36mPOST[m - /user/signup
+2023-03-18 11:29:53.650 [DefaultDispatcher-worker-2] WARN  Exposed - Transaction attempt #1 failed: Access denied for user 'ServerUser'@'localhost' to database 'warehouse'. Statement(s): null
+java.sql.SQLSyntaxErrorException: Access denied for user 'ServerUser'@'localhost' to database 'warehouse'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at org.jetbrains.exposed.sql.Database$Companion$connect$10.invoke(Database.kt:205)
+	at org.jetbrains.exposed.sql.Database$Companion$connect$10.invoke(Database.kt:205)
+	at org.jetbrains.exposed.sql.Database$Companion$doConnect$3.invoke(Database.kt:126)
+	at org.jetbrains.exposed.sql.Database$Companion$doConnect$3.invoke(Database.kt:127)
+	at org.jetbrains.exposed.sql.transactions.ThreadLocalTransactionManager$ThreadLocalTransaction$connectionLazy$1.invoke(ThreadLocalTransactionManager.kt:77)
+	at org.jetbrains.exposed.sql.transactions.ThreadLocalTransactionManager$ThreadLocalTransaction$connectionLazy$1.invoke(ThreadLocalTransactionManager.kt:76)
+	at kotlin.UnsafeLazyImpl.getValue(Lazy.kt:81)
+	at org.jetbrains.exposed.sql.transactions.ThreadLocalTransactionManager$ThreadLocalTransaction.getConnection(ThreadLocalTransactionManager.kt:89)
+	at org.jetbrains.exposed.sql.Transaction.getConnection(Transaction.kt)
+	at org.jetbrains.exposed.sql.Database.metadata$exposed_core(Database.kt:38)
+	at org.jetbrains.exposed.sql.Database$identifierManager$2.invoke(Database.kt:58)
+	at org.jetbrains.exposed.sql.Database$identifierManager$2.invoke(Database.kt:58)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74)
+	at org.jetbrains.exposed.sql.Database.getIdentifierManager(Database.kt:58)
+	at org.jetbrains.exposed.sql.Transaction$fullIdentity$2.invoke(Transaction.kt:175)
+	at org.jetbrains.exposed.sql.Transaction$fullIdentity$2.invoke(Transaction.kt:171)
+	at org.jetbrains.exposed.sql.QueryBuilder.invoke(Expression.kt:20)
+	at org.jetbrains.exposed.sql.Transaction.fullIdentity$exposed_core(Transaction.kt:171)
+	at org.jetbrains.exposed.sql.Column.toQueryBuilder(Column.kt:39)
+	at org.jetbrains.exposed.sql.QueryBuilder.append(Expression.kt:59)
+	at org.jetbrains.exposed.sql.QueryBuilder.unaryPlus(Expression.kt:68)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1$1.invoke(Query.kt:116)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1$1.invoke(Query.kt:116)
+	at org.jetbrains.exposed.sql.QueryBuilder.appendTo(Expression.kt:32)
+	at org.jetbrains.exposed.sql.QueryBuilder.appendTo$default(Expression.kt:23)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1.invoke(Query.kt:116)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1.invoke(Query.kt:107)
+	at org.jetbrains.exposed.sql.QueryBuilder.invoke(Expression.kt:20)
+	at org.jetbrains.exposed.sql.Query.prepareSQL(Query.kt:107)
+	at org.jetbrains.exposed.sql.AbstractQuery.arguments(AbstractQuery.kt:35)
+	at org.jetbrains.exposed.sql.AbstractQuery.arguments(AbstractQuery.kt:8)
+	at org.jetbrains.exposed.sql.statements.Statement.executeIn$exposed_core(Statement.kt:31)
+	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:140)
+	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:126)
+	at org.jetbrains.exposed.sql.AbstractQuery.iterator(AbstractQuery.kt:61)
+	at ru.dikoresearch.data.repository.local.WarehouseLocalRepositoryImpl$getUserByUserName$2.invokeSuspend(WarehouseLocalRepositoryImpl.kt:164)
+	at ru.dikoresearch.data.repository.local.WarehouseLocalRepositoryImpl$getUserByUserName$2.invoke(WarehouseLocalRepositoryImpl.kt)
+	at ru.dikoresearch.data.repository.local.WarehouseLocalRepositoryImpl$getUserByUserName$2.invoke(WarehouseLocalRepositoryImpl.kt)
+	at ru.dikoresearch.data.tables.DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:20)
+	at ru.dikoresearch.data.tables.DatabaseFactory$dbQuery$2.invoke(DatabaseFactory.kt)
+	at ru.dikoresearch.data.tables.DatabaseFactory$dbQuery$2.invoke(DatabaseFactory.kt)
+	at org.jetbrains.exposed.sql.transactions.experimental.SuspendedKt$suspendedTransactionAsyncInternal$1.invokeSuspend(Suspended.kt:126)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+	at kotlinx.coroutines.internal.LimitedDispatcher.run(LimitedDispatcher.kt:42)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:95)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:570)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:750)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:677)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:664)
+2023-03-18 11:29:53.653 [DefaultDispatcher-worker-2] WARN  Exposed - Transaction attempt #1 failed: Access denied for user 'ServerUser'@'localhost' to database 'warehouse'. Statement(s): null
+java.sql.SQLSyntaxErrorException: Access denied for user 'ServerUser'@'localhost' to database 'warehouse'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at org.jetbrains.exposed.sql.Database$Companion$connect$10.invoke(Database.kt:205)
+	at org.jetbrains.exposed.sql.Database$Companion$connect$10.invoke(Database.kt:205)
+	at org.jetbrains.exposed.sql.Database$Companion$doConnect$3.invoke(Database.kt:126)
+	at org.jetbrains.exposed.sql.Database$Companion$doConnect$3.invoke(Database.kt:127)
+	at org.jetbrains.exposed.sql.transactions.ThreadLocalTransactionManager$ThreadLocalTransaction$connectionLazy$1.invoke(ThreadLocalTransactionManager.kt:77)
+	at org.jetbrains.exposed.sql.transactions.ThreadLocalTransactionManager$ThreadLocalTransaction$connectionLazy$1.invoke(ThreadLocalTransactionManager.kt:76)
+	at kotlin.UnsafeLazyImpl.getValue(Lazy.kt:81)
+	at org.jetbrains.exposed.sql.transactions.ThreadLocalTransactionManager$ThreadLocalTransaction.getConnection(ThreadLocalTransactionManager.kt:89)
+	at org.jetbrains.exposed.sql.Transaction.getConnection(Transaction.kt)
+	at org.jetbrains.exposed.sql.Database.metadata$exposed_core(Database.kt:38)
+	at org.jetbrains.exposed.sql.Database$identifierManager$2.invoke(Database.kt:58)
+	at org.jetbrains.exposed.sql.Database$identifierManager$2.invoke(Database.kt:58)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74)
+	at org.jetbrains.exposed.sql.Database.getIdentifierManager(Database.kt:58)
+	at org.jetbrains.exposed.sql.Transaction$fullIdentity$2.invoke(Transaction.kt:175)
+	at org.jetbrains.exposed.sql.Transaction$fullIdentity$2.invoke(Transaction.kt:171)
+	at org.jetbrains.exposed.sql.QueryBuilder.invoke(Expression.kt:20)
+	at org.jetbrains.exposed.sql.Transaction.fullIdentity$exposed_core(Transaction.kt:171)
+	at org.jetbrains.exposed.sql.Column.toQueryBuilder(Column.kt:39)
+	at org.jetbrains.exposed.sql.QueryBuilder.append(Expression.kt:59)
+	at org.jetbrains.exposed.sql.QueryBuilder.unaryPlus(Expression.kt:68)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1$1.invoke(Query.kt:116)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1$1.invoke(Query.kt:116)
+	at org.jetbrains.exposed.sql.QueryBuilder.appendTo(Expression.kt:32)
+	at org.jetbrains.exposed.sql.QueryBuilder.appendTo$default(Expression.kt:23)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1.invoke(Query.kt:116)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1.invoke(Query.kt:107)
+	at org.jetbrains.exposed.sql.QueryBuilder.invoke(Expression.kt:20)
+	at org.jetbrains.exposed.sql.Query.prepareSQL(Query.kt:107)
+	at org.jetbrains.exposed.sql.AbstractQuery.arguments(AbstractQuery.kt:35)
+	at org.jetbrains.exposed.sql.AbstractQuery.arguments(AbstractQuery.kt:8)
+	at org.jetbrains.exposed.sql.statements.Statement.executeIn$exposed_core(Statement.kt:31)
+	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:140)
+	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:126)
+	at org.jetbrains.exposed.sql.AbstractQuery.iterator(AbstractQuery.kt:61)
+	at ru.dikoresearch.data.repository.local.WarehouseLocalRepositoryImpl$getUserByUserName$2.invokeSuspend(WarehouseLocalRepositoryImpl.kt:164)
+	at ru.dikoresearch.data.repository.local.WarehouseLocalRepositoryImpl$getUserByUserName$2.invoke(WarehouseLocalRepositoryImpl.kt)
+	at ru.dikoresearch.data.repository.local.WarehouseLocalRepositoryImpl$getUserByUserName$2.invoke(WarehouseLocalRepositoryImpl.kt)
+	at ru.dikoresearch.data.tables.DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:20)
+	at ru.dikoresearch.data.tables.DatabaseFactory$dbQuery$2.invoke(DatabaseFactory.kt)
+	at ru.dikoresearch.data.tables.DatabaseFactory$dbQuery$2.invoke(DatabaseFactory.kt)
+	at org.jetbrains.exposed.sql.transactions.experimental.SuspendedKt$suspendedTransactionAsyncInternal$1.invokeSuspend(Suspended.kt:126)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+	at kotlinx.coroutines.internal.LimitedDispatcher.run(LimitedDispatcher.kt:42)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:95)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:570)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:750)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:677)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:664)
+2023-03-18 11:29:53.655 [eventLoopGroupProxy-4-2] ERROR Application - Unhandled: POST - /user/signup
+java.sql.SQLSyntaxErrorException: Access denied for user 'ServerUser'@'localhost' to database 'warehouse'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at org.jetbrains.exposed.sql.Database$Companion$connect$10.invoke(Database.kt:205)
+	at org.jetbrains.exposed.sql.Database$Companion$connect$10.invoke(Database.kt:205)
+	at org.jetbrains.exposed.sql.Database$Companion$doConnect$3.invoke(Database.kt:126)
+	at org.jetbrains.exposed.sql.Database$Companion$doConnect$3.invoke(Database.kt:127)
+	at org.jetbrains.exposed.sql.transactions.ThreadLocalTransactionManager$ThreadLocalTransaction$connectionLazy$1.invoke(ThreadLocalTransactionManager.kt:77)
+	at org.jetbrains.exposed.sql.transactions.ThreadLocalTransactionManager$ThreadLocalTransaction$connectionLazy$1.invoke(ThreadLocalTransactionManager.kt:76)
+	at kotlin.UnsafeLazyImpl.getValue(Lazy.kt:81)
+	at org.jetbrains.exposed.sql.transactions.ThreadLocalTransactionManager$ThreadLocalTransaction.getConnection(ThreadLocalTransactionManager.kt:89)
+	at org.jetbrains.exposed.sql.Transaction.getConnection(Transaction.kt)
+	at org.jetbrains.exposed.sql.Database.metadata$exposed_core(Database.kt:38)
+	at org.jetbrains.exposed.sql.Database$identifierManager$2.invoke(Database.kt:58)
+	at org.jetbrains.exposed.sql.Database$identifierManager$2.invoke(Database.kt:58)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74)
+	at org.jetbrains.exposed.sql.Database.getIdentifierManager(Database.kt:58)
+	at org.jetbrains.exposed.sql.Transaction$fullIdentity$2.invoke(Transaction.kt:175)
+	at org.jetbrains.exposed.sql.Transaction$fullIdentity$2.invoke(Transaction.kt:171)
+	at org.jetbrains.exposed.sql.QueryBuilder.invoke(Expression.kt:20)
+	at org.jetbrains.exposed.sql.Transaction.fullIdentity$exposed_core(Transaction.kt:171)
+	at org.jetbrains.exposed.sql.Column.toQueryBuilder(Column.kt:39)
+	at org.jetbrains.exposed.sql.QueryBuilder.append(Expression.kt:59)
+	at org.jetbrains.exposed.sql.QueryBuilder.unaryPlus(Expression.kt:68)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1$1.invoke(Query.kt:116)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1$1.invoke(Query.kt:116)
+	at org.jetbrains.exposed.sql.QueryBuilder.appendTo(Expression.kt:32)
+	at org.jetbrains.exposed.sql.QueryBuilder.appendTo$default(Expression.kt:23)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1.invoke(Query.kt:116)
+	at org.jetbrains.exposed.sql.Query$prepareSQL$1.invoke(Query.kt:107)
+	at org.jetbrains.exposed.sql.QueryBuilder.invoke(Expression.kt:20)
+	at org.jetbrains.exposed.sql.Query.prepareSQL(Query.kt:107)
+	at org.jetbrains.exposed.sql.AbstractQuery.arguments(AbstractQuery.kt:35)
+	at org.jetbrains.exposed.sql.AbstractQuery.arguments(AbstractQuery.kt:8)
+	at org.jetbrains.exposed.sql.statements.Statement.executeIn$exposed_core(Statement.kt:31)
+	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:140)
+	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:126)
+	at org.jetbrains.exposed.sql.AbstractQuery.iterator(AbstractQuery.kt:61)
+	at ru.dikoresearch.data.repository.local.WarehouseLocalRepositoryImpl$getUserByUserName$2.invokeSuspend(WarehouseLocalRepositoryImpl.kt:164)
+	at ru.dikoresearch.data.repository.local.WarehouseLocalRepositoryImpl$getUserByUserName$2.invoke(WarehouseLocalRepositoryImpl.kt)
+	at ru.dikoresearch.data.repository.local.WarehouseLocalRepositoryImpl$getUserByUserName$2.invoke(WarehouseLocalRepositoryImpl.kt)
+	at ru.dikoresearch.data.tables.DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:20)
+	at ru.dikoresearch.data.tables.DatabaseFactory$dbQuery$2.invoke(DatabaseFactory.kt)
+	at ru.dikoresearch.data.tables.DatabaseFactory$dbQuery$2.invoke(DatabaseFactory.kt)
+	at org.jetbrains.exposed.sql.transactions.experimental.SuspendedKt$suspendedTransactionAsyncInternal$1.invokeSuspend(Suspended.kt:126)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+	at kotlinx.coroutines.internal.LimitedDispatcher.run(LimitedDispatcher.kt:42)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:95)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:570)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:750)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:677)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:664)
+2023-03-18 11:29:53.656 [eventLoopGroupProxy-4-2] INFO  Application - [31m500 Internal Server Error[m: [36mPOST[m - /user/signup
+2023-03-18 11:31:46.211 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mPOST[m - /user/signup
+2023-03-18 11:36:37.356 [eventLoopGroupProxy-4-3] INFO  Application - [31m401 Unauthorized[m: [36mGET[m - /orders/all
+2023-03-18 11:36:51.017 [eventLoopGroupProxy-4-3] INFO  Application - [32m200 OK[m: [36mPOST[m - /user/login
+2023-03-18 11:36:51.167 [eventLoopGroupProxy-4-3] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 11:37:32.241 [eventLoopGroupProxy-4-4] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 11:44:12.814 [eventLoopGroupProxy-4-5] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 11:44:27.464 [eventLoopGroupProxy-4-5] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/name/647583
+2023-03-18 11:46:04.147 [DefaultDispatcher-worker-2] INFO  Exposed - Found order in Order(orderId=1, orderName=647583, userId=1, username=Warehouse, status=created, createdAt=2023-03-18T11:46:04.094897, comment=, images=[], uuid=1111-2222-3333-4444, goods=[RemoteGoods(art=123456, name=G1, count=1, price=111), RemoteGoods(art=234567, name=G2, count=2, price=222), RemoteGoods(art=345678, name=G3, count=3, price=333)], checked=1)
+2023-03-18 11:46:04.152 [eventLoopGroupProxy-4-5] INFO  Application - [32m200 OK[m: [36mPOST[m - /orders/new
+2023-03-18 11:46:04.312 [eventLoopGroupProxy-4-5] INFO  Exposed - File successfully stored to /Users/dmitriikonovalov/Documents/MyProjects/Warehouse/Images/647583/IMG_647583_1679129149527.jpeg
+2023-03-18 11:46:04.314 [eventLoopGroupProxy-4-5] INFO  Application - String image OrderImage(orderId=1, imageName=IMG_647583_1679129149527.jpeg, imagePath=/Users/dmitriikonovalov/Documents/MyProjects/Warehouse/Images/647583/IMG_647583_1679129149527.jpeg)
+2023-03-18 11:46:04.365 [eventLoopGroupProxy-4-5] INFO  Application - [32m200 OK[m: [36mPOST[m - /orders/uploadImage
+2023-03-18 11:46:04.410 [eventLoopGroupProxy-4-5] INFO  Exposed - File successfully stored to /Users/dmitriikonovalov/Documents/MyProjects/Warehouse/Images/647583/IMG_647583_1679129150202.jpeg
+2023-03-18 11:46:04.411 [eventLoopGroupProxy-4-5] INFO  Application - String image OrderImage(orderId=1, imageName=IMG_647583_1679129150202.jpeg, imagePath=/Users/dmitriikonovalov/Documents/MyProjects/Warehouse/Images/647583/IMG_647583_1679129150202.jpeg)
+2023-03-18 11:46:04.449 [eventLoopGroupProxy-4-5] INFO  Application - [32m200 OK[m: [36mPOST[m - /orders/uploadImage
+2023-03-18 11:46:08.709 [eventLoopGroupProxy-4-5] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 11:46:09.780 [eventLoopGroupProxy-4-5] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/name/647583
+2023-03-18 12:05:03.343 [eventLoopGroupProxy-4-6] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 12:05:05.380 [eventLoopGroupProxy-4-6] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/name/647583
+2023-03-18 12:05:05.572 [eventLoopGroupProxy-4-7] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/image/IMG_647583_1679129150202.jpeg
+2023-03-18 12:05:05.572 [eventLoopGroupProxy-4-8] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/image/IMG_647583_1679129149527.jpeg
+2023-03-18 12:14:43.476 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 12:15:00.590 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 12:18:10.368 [eventLoopGroupProxy-4-1] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 12:18:16.991 [eventLoopGroupProxy-4-1] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/name/647583
+2023-03-18 12:18:20.811 [eventLoopGroupProxy-4-1] INFO  Exposed - Url is empty, showing location of 123456
+2023-03-18 12:18:20.812 [eventLoopGroupProxy-4-1] INFO  Application - [31m404 Not Found[m: [36mGET[m - /orders/product/123456
+2023-03-18 12:18:26.470 [eventLoopGroupProxy-4-1] INFO  Exposed - Url is empty, showing location of 123456
+2023-03-18 12:18:26.471 [eventLoopGroupProxy-4-1] INFO  Application - [31m404 Not Found[m: [36mGET[m - /orders/product/123456
+2023-03-18 12:19:51.134 [KtorShutdownHook] INFO  Application - Application stopping: io.ktor.server.application.Application@5782d777
+2023-03-18 12:19:51.137 [KtorShutdownHook] INFO  Application - Application stopped: io.ktor.server.application.Application@5782d777
+2023-03-18 12:19:53.985 [main] INFO  Application - Autoreload is disabled because the development mode is off.
+2023-03-18 12:19:54.259 [main] INFO  Application - Application started in 0.292 seconds.
+2023-03-18 12:19:54.260 [main] INFO  Application - Application started: io.ktor.server.application.Application@5782d777
+2023-03-18 12:19:54.497 [DefaultDispatcher-worker-2] INFO  Application - Responding at http://0.0.0.0:8080
+2023-03-18 12:22:16.006 [eventLoopGroupProxy-4-1] INFO  Exposed - Url is empty, showing location of 123456
+2023-03-18 12:22:16.226 [eventLoopGroupProxy-4-1] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/product/123456
+2023-03-18 12:22:19.056 [eventLoopGroupProxy-4-1] INFO  Exposed - Url is empty, showing location of 123456
+2023-03-18 12:22:19.057 [eventLoopGroupProxy-4-1] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/product/123456
+2023-03-18 12:22:43.409 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 12:22:44.797 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/name/647583
+2023-03-18 12:22:46.458 [eventLoopGroupProxy-4-2] INFO  Exposed - Url is empty, showing location of 234567
+2023-03-18 12:22:46.459 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/product/234567
+2023-03-18 12:22:47.657 [eventLoopGroupProxy-4-2] INFO  Exposed - Url is empty, showing location of 345678
+2023-03-18 12:22:47.658 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/product/345678
+2023-03-18 12:22:49.208 [eventLoopGroupProxy-4-2] INFO  Exposed - Url is empty, showing location of 234567
+2023-03-18 12:22:49.209 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/product/234567
+2023-03-18 12:22:51.927 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 12:23:01.196 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/name/7778876
+2023-03-18 12:23:17.988 [eventLoopGroupProxy-4-3] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 12:27:15.810 [main] INFO  Application - Application stopping: io.ktor.server.application.Application@5782d777
+2023-03-18 12:27:15.813 [main] INFO  Application - Application stopped: io.ktor.server.application.Application@5782d777
+2023-03-18 20:46:56.949 [main] INFO  Application - Autoreload is disabled because the development mode is off.
+2023-03-18 20:46:57.223 [main] INFO  Application - Application started in 0.295 seconds.
+2023-03-18 20:46:57.223 [main] INFO  Application - Application started: io.ktor.server.application.Application@5782d777
+2023-03-18 20:46:57.467 [DefaultDispatcher-worker-2] INFO  Application - Responding at http://0.0.0.0:8080
+2023-03-18 20:51:31.170 [eventLoopGroupProxy-4-1] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 20:51:46.918 [eventLoopGroupProxy-4-1] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/name/647583
+2023-03-18 20:53:16.621 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
+2023-03-18 20:53:18.620 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/name/647583
+2023-03-18 20:53:25.607 [eventLoopGroupProxy-4-2] INFO  Exposed - File successfully stored to /Users/dmitriikonovalov/Documents/MyProjects/Warehouse/Images/647583/IMG_647583_1679162000258.jpeg
+2023-03-18 20:53:25.608 [eventLoopGroupProxy-4-2] INFO  Application - String image OrderImage(orderId=1, imageName=IMG_647583_1679162000258.jpeg, imagePath=/Users/dmitriikonovalov/Documents/MyProjects/Warehouse/Images/647583/IMG_647583_1679162000258.jpeg)
+2023-03-18 20:53:25.658 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mPOST[m - /orders/uploadImage
+2023-03-18 20:53:29.068 [eventLoopGroupProxy-4-2] INFO  Application - [32m200 OK[m: [36mGET[m - /orders/all
